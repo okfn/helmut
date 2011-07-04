@@ -10,21 +10,22 @@ def field(k, v, boost=None):
         fld += '^%d' % boost
     return fld
 
-def query(solr, q, kw=(), limit=20):
-    fq = ['+' + field(k, v) for k, v in kw]
+def query(solr, q, filters=(), **kw):
+    fq = ['+' + field(k, v) for k, v in filters]
     fq.append('_collection:%s' % entities.name)
-    nq = normalize(q)
-    _q = [
-         field('title', q, boost=10),
-         field('title.n', nq, boost=7),
-         field('alias', q, boost=8),
-         field('alias.n', nq, boost=5),
-         field('text', q, boost=2),
-         field('text', nq)
-         ]
-    _q = ' OR '.join(_q)
-    result = solr.raw_query(q=_q, fq=fq, rows=limit, wt='json',
-            sort='score desc, title desc', fl='*,score')
-    result = json.loads(result).get('response', {})
+    if len(q) and q != '*:*':
+        nq = normalize(q)
+        _q = [
+             field('title', q, boost=10),
+             field('title.n', nq, boost=7),
+             field('alias', q, boost=8),
+             field('alias.n', nq, boost=5),
+             field('text', q, boost=2),
+             field('text', nq)
+             ]
+        q = ' OR '.join(_q)
+    result = solr.raw_query(q=q, fq=fq, wt='json',
+            sort='score desc, title desc', fl='*,score', **kw)
+    result = json.loads(result)
     return result
 
