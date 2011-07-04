@@ -2,13 +2,16 @@ import json
 from datetime import datetime
 
 from flask import abort, g, request, url_for, Response
+from flask import render_template, redirect
 from bson.dbref import DBRef
 from bson.objectid import ObjectId
 
 from helmut.core import app, entities, solr, request_format
 from helmut.query import query
+from helmut.pager import Pager
 
-
+# Specific to Freebase: type system. TODO: properly implement 
+# handling of multiple types.
 _recon_type = {
         'id': '/' + app.config['ENTITY_NAME'],
         'name': app.config['ENTITY_NAME'].capitalize()
@@ -45,11 +48,13 @@ def before_request():
 
 @app.route('/')
 def index():
-    return "Hello, World!"
+    pager = Pager(request.args)
+    return render_template('index.tmpl', pager=pager)
 
 @app.route('/search')
 def search():
-    return jsonify({'message': 'not implemented'})
+    pager = Pager(request.args)
+    return render_template('search.tmpl', pager=pager)
 
 @app.route('/%(ENTITY_NAME)s/<path:path>.<format>' % app.config)
 @app.route('/%(ENTITY_NAME)s/<path:path>' % app.config)
@@ -63,7 +68,10 @@ def entity(path, format=None):
     format = request_format(format)
     if format == 'json':
         return jsonify(entity)
-    return "<h1>%s</h1>" % entity.get('title')
+    if 'redirect_url' in entity:
+        return redirect(entity.get('redirect_url'),
+                        code=303)
+    return render_template('view.tmpl', entity=entity)
 
 
 def _query(q):
@@ -74,11 +82,11 @@ def _query(q):
     except ValueError: limit = 5
     except TypeError: limit = 5
 
-    filters = [(p.get('p'), p.get('v', '*')) for p in q.get('properties', []) \
-            if 'p' in p]
-    results = query(g.solr, q.get('query'), kw=filters, limit=limit)
+    filters = [(p.get('p'), p.get('v', '*')) for p in \
+               q.get('properties', []) if 'p' in p]
+    results = query(g.solr, q.get('query'), filters=filters, rows=limit)
     matches = []
-    for result in results.get('docs', []):
+    for result in results.get('response', {}).get('docs', []):
         matches.append({
             'name': result.get('title'),
             'score': result.get('score') * 2000,

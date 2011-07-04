@@ -1,0 +1,30 @@
+
+{% macro search(pager) %}
+  <form id="search-form" method="GET" action="{{ url_for('search') }}">
+    <input id="search-box" name="q" value="{{ pager.q }}" placeholder="search term" autofocus >
+    {% for t, v in pager.filters %}
+      <input type="hidden" name="filter_{{ t }}" value="{{ v }}" />
+    {% endfor %}
+  </form>
+{% endmacro %}
+
+{% macro pager(pager) %}
+  {% if pager.pages > 1 %}
+  <div class="pager">
+    {% if pager.has_prev %}
+      <div class="prev">
+        <a href="{{ pager.prev_url }}">&laquo; back</a>
+      </div>
+    {% endif %}
+    {% if pager.has_next %}
+      <div class="next">
+        <a href="{{ pager.next_url }}">next &raquo;</a>
+      </div>
+    {% endif %}
+    <div class="center">
+      {{ pager.page }} / {{ pager.pages }}     
+    </div>
+  </div>
+  {% endif %}
+{% endmacro %}
+

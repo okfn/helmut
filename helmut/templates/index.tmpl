@@ -1,0 +1,21 @@
+{% import "macros.tmpl" as macros %}
+{% extends "layout.tmpl" %}
+
+{% block title %}
+  Welcome
+{% endblock %}
+
+{% block content %}
+  <div class="box">
+    {{ macros.search(pager) }}
+
+    <p>
+      {{ config['TITLE'] }} is an identity resolution service. The 
+      maintained entities are assigned a unique URI and can be 
+      dereferenced. For fuzzy matching, an implementation of the 
+      Google Refine Reconciliation API is provided.
+    </p>
+  </div>
+{% endblock %}
+
+

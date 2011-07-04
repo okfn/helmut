@@ -1,0 +1,23 @@
+{% import "macros.tmpl" as macros %}
+{% extends "layout.tmpl" %}
+
+{% block title %}
+  {{ pager.q }} - Search
+{% endblock %}
+
+{% block content %}
+  <div class="box">
+    {{ macros.search(pager) }}
+    
+    <ul>
+    {% for result in pager %}
+      <li><a href="{{ url_for('entity', path=result.get('path')) }}">{{ result.get('title') }}</a></li>
+    {% endfor %}
+    </ul>
+
+    {{ macros.pager(pager) }}
+  </div>
+{% endblock %}
+
+
+
