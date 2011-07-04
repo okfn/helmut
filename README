@@ -1,0 +1,11 @@
+
+Helmut the reconciliation server
+================================
+
+Helmut is a simplified implementation of the Google Refine/Freebase 
+reconciliation API inspired by OpenCorporates.com. Its purpose is 
+to generate unique URIs for a provided set of entities and to 
+provide fuzzy matching capabilities on these entities to help 
+guessing them.
+
+
