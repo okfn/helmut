@@ -8,11 +8,11 @@ from helmut.core import entities, solr
 from helmut.text import normalize
 
 def datetime_add_tz(dt):
-     return datetime(dt.year, dt.month, dt.day, dt.hour,
-                     dt.minute, dt.second, tzinfo=tz.tzutc())
+    """ Solr requires time zone information on all dates. """
+    return datetime(dt.year, dt.month, dt.day, dt.hour,
+                    dt.minute, dt.second, tzinfo=tz.tzutc())
 
-def save_entity(path, title, alias=[], description=None, partition=None,
-        **kwargs):
+def save_entity(path, title, alias=[], description=None, **kwargs):
     """ Save an entity to the database and to solr.
 
     Each entity is uniquely described by its path, which will be the last 
@@ -30,8 +30,6 @@ def save_entity(path, title, alias=[], description=None, partition=None,
 
     if description is not None:
         entity['description'] = description
-    if partition is not None:
-        entity['_partition'] = partition
 
     entity['updated_at'] = datetime.utcnow()
 
@@ -58,7 +56,6 @@ def save_entity(path, title, alias=[], description=None, partition=None,
 def finalize():
     """ After loading, run a few optimization operations. """
     entities.ensure_index([('path', ASCENDING)])
-    entities.ensure_index([('partition', ASCENDING)])
     conn = solr() 
     conn.optimize()
     conn.commit()

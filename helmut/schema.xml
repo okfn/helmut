@@ -93,7 +93,6 @@
  <fields>
    <field name="path" type="string" indexed="true" stored="true" required="true" />
    <field name="_collection" type="string" indexed="true" stored="true" />
-   <field name="_partition" type="string" indexed="true" stored="true" />
    <field name="title" type="string" indexed="true" stored="true" required="true" />
    <field name="title.n" type="string" indexed="true" stored="true" required="true" />
    <field name="alias" type="string" indexed="true" stored="true" multiValued="true"/>
