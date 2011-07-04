@@ -10,6 +10,9 @@
     <h1>{{ entity.get('title') }}</h1>
 
     <hr/>
+    Created: {{ entity.get('created_at') | date }} &middot;
+    Updated: {{ entity.get('updated_at') | date }} &middot;
+
     <a href="{{ url_for('entity', path=entity.get('path')) + '.json' }}">
       <img src="/static/img/json.png"></a>
   </div>

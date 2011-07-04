@@ -92,6 +92,20 @@ body, input {
   font-family: Optima, Futura, Helvetica, sans-serif; 
 }
 
+a, a:visited, a:active {
+  color: #2754a0;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #152d55;
+}
+
+h1 {
+  font-size: 1.3em;
+}
+
 .site {
   margin: 0 auto;
   width: 600px;
@@ -107,11 +121,31 @@ header .site-title {
   font-weight: bold;
 }
 
+header .site-title a {
+  color: #000;
+  text-decoration: none;
+}
+
 footer {
   border-top: 1px solid #ddd;
   margin: 25px 0 0 0;
   padding: 20px 0 20px 0;
   background-color: #e1e1e1;
+}
+
+footer ul.links {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+footer ul.links li {
+  display: inline-block;
+  padding-right: 1em;
+}
+
+footer .site {
+  padding: 0em 1em 1em 1em;
 }
 
 #main {

@@ -3,6 +3,7 @@ from datetime import datetime
 
 from flask import abort, g, request, url_for, Response
 from flask import render_template, redirect
+from jinja2 import evalcontextfilter
 from bson.dbref import DBRef
 from bson.objectid import ObjectId
 
@@ -16,6 +17,12 @@ _recon_type = {
         'id': '/' + app.config['ENTITY_NAME'],
         'name': app.config['ENTITY_NAME'].capitalize()
     }
+
+
+@app.template_filter()
+@evalcontextfilter
+def date(eval_ctx, value):
+    return value.strftime("%d.%m.%Y")
 
 
 def default_json(obj):

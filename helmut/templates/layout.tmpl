@@ -26,7 +26,9 @@
   <div id="container" class="container">
     <header>
       <div class="site">
-        <span class="site-title">{{ config['TITLE'] }}</span>
+        <span class="site-title">
+          <a href="{{ url_for('index') }}">{{ config['TITLE'] }}</a>
+        </span>
       </div>
     </header>
     <div id="main" class="site" role="main">
@@ -36,6 +38,12 @@
     </div>
     <footer>
       <div class="site">
+        <ul class="links">
+          <li><a href="{{ url_for('index') }}">Home</a></li>
+          <li><a href="{{ url_for('search') }}">All</a></li>
+          <li><a href="http://code.google.com/p/google-refine/wiki/ReconciliationServiceApi">API Documentation</a></li>
+          <li><a href="{{ url_for('reconcile') }}">API Endpoint</a></li>
+        </ul>
         &copy; 2011: An <a href="http://okfn.org">Open Knowledge Foundation</a>
           project. 
       </div>
