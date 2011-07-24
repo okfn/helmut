@@ -6,9 +6,10 @@ SECRET_KEY = 'shibbloleth'
 TITLE = 'Helmut the Reconciliation Server'
 ENTITY_NAME = 'entity'
 
-MONGO_HOST = 'localhost'
-MONGO_DB = 'recondb'
-MONGO_COLLECTION = ENTITY_NAME
+WEBSTORE_SERVER = 'webstore.thedatahub.org'
+WEBSTORE_USER = 'pudo'
+WEBSTORE_DB = 'helmut'
+WEBSTORE_TABLE = 'types'
 
 SOLR_HOST = 'http://localhost:8983/solr/helmut'
 

@@ -91,30 +91,25 @@
 
 
  <fields>
-   <field name="path" type="string" indexed="true" stored="true" required="true" />
-   <field name="_collection" type="string" indexed="true" stored="true" />
-   <field name="title" type="string" indexed="true" stored="true" required="true" />
-   <field name="title.n" type="string" indexed="true" stored="true" required="true" />
+   <field name="__id__" type="string" indexed="true" stored="true" required="true" />
+   <field name="__type__" type="string" indexed="true" stored="true" />
    <field name="alias" type="string" indexed="true" stored="true" multiValued="true"/>
    <field name="alias.n" type="string" indexed="true" stored="true" multiValued="true"/>
-   <field name="description" type="text" indexed="true" stored="true" />
-
-   <field name="created_at" type="date" indexed="true" stored="true" />
-   <field name="updated_at" type="date" indexed="true" stored="true" />
 
    <!-- catchall field, containing all other searchable text fields (implemented
         via copyField further on in this schema  -->
-   <field name="text" type="text" indexed="true" stored="false" multiValued="true"/>
-   <field name="indexed_ts" type="date" indexed="true" stored="true" default="NOW" multiValued="false"/>
-   <dynamicField name="*" type="text" indexed="true" stored="true"
-     multiValued="true" />
+   <field name="__text__" type="text" indexed="true" stored="false" multiValued="true"/>
+   <field name="indexed_ts" type="date" indexed="true" stored="true" default="NOW" />
+   <dynamicField name="*.n" type="text" indexed="true" stored="true" />
+   <dynamicField name="*.s" type="string" indexed="true" stored="true" />
+   <dynamicField name="*" type="text" indexed="true" stored="true" />
  </fields>
 
  <uniqueKey>path</uniqueKey>
  <defaultSearchField>text</defaultSearchField>
  <solrQueryParser defaultOperator="AND"/>
 
- <copyField source="*" dest="text"/>
+ <copyField source="*" dest="__text__"/>
 </schema>
 
 

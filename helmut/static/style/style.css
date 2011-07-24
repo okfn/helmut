@@ -117,6 +117,12 @@ header {
 }
 
 header .site-title {
+  display: block;
+  text-align: bottom;
+  background: url(/static/img/pear.png) no-repeat;
+  padding-left: 3em;
+  padding-top: 20px;
+  min-height: 50px;
   font-size: 1.7em;
   font-weight: bold;
 }

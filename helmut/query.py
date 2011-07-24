@@ -1,6 +1,5 @@
 import json
 
-from helmut.core import entities
 from helmut.text import normalize
 
 def field(k, v, boost=None):
@@ -12,7 +11,7 @@ def field(k, v, boost=None):
 
 def query(solr, q, filters=(), **kw):
     fq = ['+' + field(k, v) for k, v in filters]
-    fq.append('_collection:%s' % entities.name)
+    #fq.append('_collection:%s' % entities.name)
     if len(q) and q != '*:*':
         nq = normalize(q)
         _q = [

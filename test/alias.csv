@@ -1,0 +1,440 @@
+original,mimetype,source
+--, ,http://www.gd.nrw.de
+.csv,text/csv,DCmwVKOK66306
+.csv zipped,text/csv,DCmwVKOK94759
+.doc,application/vnd.ms-word,DCmwVKOK769
+.e00, ,GhmOhDGT1128
+.gml,text/xml+gml,GhmOhDGT1140
+.mif .mid, ,GhmOhDGT1134
+.shp,application/octet-stream+esri,GhmOhDGT1155
+.tab,text/tsv,GhmOhDGT1158
+.tar.gz, ,ZYdFRfOd23983
+.txt.gz,text/plain,ZYdFRfOd35222
+.zip,application/zip,GhmOhDGT4677
+(identifier), ,KiOaXHDl27492
+(saknas),Missing,lYcTXIyE62
+"7z, csv, shp",application/octet-stream+esri,ZYdFRfOd8110
+access,application/vnd.ms-access,http://www.geoportal-hamburg.de/hmdk_daten/Recycling-Kataster-01.pdf
+access-db,application/vnd.ms-access,http://www.lua.nrw.de/emikat97/eper/eper.htm
+access2000,application/vnd.ms-access,http://www.hamburg.de/grundstueckswerte/
+adabas auf unix, ,http://www.bvl.bund.de/cln_007/DE/01__Lebensmittel/01__Sicherheit__Kontrollen/03__Monitoring/Monitoring__node.html__nnn=true
+adabas-bs2000, ,http://doku.uba.de/cgi-bin/g2kadis?WEB=JA&ADISDB=AK&SATZNR=00407355
+adobe pdf,application/pdf,ZYdFRfOd79628
+alb-schnittstelle, ,http://www.thueringen.de/vermessung
+aleph sequentials, ,DCmwVKOK29163
+analog, ,http://www.hlug.de/medien/boden/publikationen/index.html
+api, ,DCmwVKOK34952
+api/html,api/rest,DCmwVKOK15756
+api/json,application/json,DCmwVKOK4347
+api/linked-data, ,DCmwVKOK5846
+api/opensearch,text/xml,DCmwVKOK22929
+api/query, ,KiOaXHDl29448
+api/sdmx+json/xml,text/xml,DCmwVKOK15148
+api/search, ,DCmwVKOK1978
+api/xml, ,DCmwVKOK9446
+api/xml/get, ,ZYdFRfOd31613
+api/xml|json,application/json,ZYdFRfOd17899
+app, ,http://arvada.org/downloads/4c985ba62c34577829000a79
+application/dbase, ,viDvxfTD210
+application/dbase+dbc, ,viDvxfTD614
+application/dbf,application/x-dbase,lYcTXIyE507
+application/dxf, ,GhmOhDGT130157
+application/force-download, ,http://www.data-publica.com/en/data-publications/20101115-10
+application/gml+xml,text/xml+gml,TUyomaoD10
+application/marc+xml,application/marc,lYcTXIyE525
+application/mods+xml, ,lYcTXIyE527
+application/msword,application/vnd.ms-word,lYcTXIyE118
+application/n3,application/n3,DCmwVKOK1990
+application/nt,text/plain+triples,DCmwVKOK1987
+application/owl+xml,application/rdf+xml,DCmwVKOK23020
+application/rdf xml,application/rdf+xml,KiOaXHDl27995
+application/tgz|text/jsondir,application/json,DCmwVKOK6492
+application/vnd.google-earth.kmz],application/vnd.google-earth.kmz,GhmOhDGT130163
+application/vnd.msaccess,application/vnd.ms-access,lYcTXIyE169
+application/x-javascript,application/json,DCmwVKOK3590
+application/x-mmz, ,GhmOhDGT130191
+application/x-msexcel,application/vnd.ms-excel,http://www.data-publica.com/en/data-publications/20101110-25
+application/x-nquads,text/plain+triples,http://quebec.bio2rdf.org/download/data/hgnc/hgnc.nq.gz
+application/x-ntriple,text/plain+triples,DCmwVKOK5839
+application/x-ntriples,text/plain+triples,http://quebec.bio2rdf.org/download/data/affymetrix/affymetrix.n3.gz
+application/x-ntriples (zip),text/plain+triples,DCmwVKOK5470
+application/x-protobuf, ,DCmwVKOK7179
+application/x-research-info-systems, ,lYcTXIyE531
+application/x-zip-compressed, ,http://www.data-publica.com/en/data-publications/20110309-13
+application/xhtml rdfa,text/html+rdfa,DCmwVKOK22866
+application/xhtml+xml,text/xml,http://dbpedia.org/page/DBpedia
+application/xls,application/vnd.ms-excel,DCmwVKOK24762
+application/xml,text/xml,BzAOeEXg2885
+application/xml,text/xml
+application/xml+rdf,application/rdf+xml,ElduXUpc638
+application/xml+rss, ,http://localhost:5000/package/drinking-water-radnet-laboratory-analysis
+application/zip+application/vnd.ms-excel,application/vnd.ms-excel,GhmOhDGT167
+arc/info-coverage, ,http://www.gd.nrw.de/l_wgt.htm
+arcgis,application/octet-stream+esri,DCmwVKOK1433
+arcinfo, ,http://doku.uba.de/cgi-bin/g2kadis?WEB=JA&ADISDB=VH&SATZNR=00026389
+arcinfo grid format, ,http://doku.uba.de/cgi-bin/g2kadis?WEB=JA&ADISDB=VH&SATZNR=00042631
+arcview shp,application/octet-stream+esri,http://umwelt.schleswig-holstein.de/servlet/is/23372/uebersicht_thumb.jpg
+ascii,text/plain,DCmwVKOK27415
+ascii grid,text/plain,DCmwVKOK70546
+ascii-koordinatentripel,text/plain,http://www.thueringen.de/de/tlvermgeo/landesvermessung/dgm/content.html
+asp, ,DCmwVKOK14810
+atom,application/atom+xml,http://data.dc.gov/downloads/4ba153902c3457053f000eca
+atom;txt;xml,text/xml,DCmwVKOK24277
+"auf anfrage, fast alle üblichen dateiformate möglich", ,https://gateway.hamburg.de
+autocad,application/x-dwf,GhmOhDGT6742
+autocad dxf,text/vnd.dxf,GhmOhDGT1658
+bacom, ,http://fhhportal.stadt.hamburg.de/websites/0009/PROJ/dbgv/Kommunikation/default.aspx
+basis-datenbank, ,http://www.versuchsberichte.de
+beacon, ,DCmwVKOK16487
+beliebige übliche formate, ,www.hamburger-luft.de
+bfg-uploaddatenformate, ,http://www.flussgebiete.nrw.de
+bgrund, ,http://www.lv-bw.de/
+binary,application/octet-stream,http://www.data-publica.com/en/data-publications/94__rl-080808-rex
+bittorrent|zip|tsv,text/tsv,DCmwVKOK24029
+c,text/c,DCmwVKOK48112
+catálogos, ,GhmOhDGT137015
+cif, ,DCmwVKOK69659
+compressed ascii,text/plain,DCmwVKOK9744
+csc, ,ZYdFRfOd58656
+csv,text/csv
+csv (zip),text/csv,DCmwVKOK95657
+csv (zipped),text/csv,DCmwVKOK3080
+csv and xls,application/vnd.ms-excel,DCmwVKOK28831
+csv file,text/csv,ZYdFRfOd94280
+"csv, sas, spss",text/vnd.spss.sav,GhmOhDGT8249
+"csv, xls m.fl.",text/csv,http://localhost:5000/package/redaksjonsundersoekelsen_2011
+"csv, xls, ods, pdf mm", ,DCmwVKOK95128
+"csv, xls, openoffice, pdf mm",application/vnd.ms-excel,ZYdFRfOd173804
+"csv, xls, prn, dbase med flere",text/csv,DCmwVKOK95075
+"csv, xml",text/xml,GhmOhDGT2030
+custom (index),text/html,DCmwVKOK28520
+cvs,text/csv,DCmwVKOK5957
+database,text/sql,DCmwVKOK42731
+datapkg/hg,api/mercurial,DCmwVKOK3903
+datapkg/src/hg,api/mercurial,DCmwVKOK11538
+dbase dbf,application/x-dbase,lYcTXIyE507
+dbf,application/x-dbase,GhmOhDGT5510
+digital, ,http://www.tll.de/ainfo/ai_idx.htm
+digital (grundwasserdatenbank), ,http://www.lubw.baden-wuerttemberg.de/servlet/is/9162/
+digital u. analog, ,http://www.lau.sachsen-anhalt.de
+doc,application/vnd.ms-word,DCmwVKOK25050
+dublin core, ,lYcTXIyE521
+dxf, ,DCmwVKOK70581
+ecel,application/vnd.ms-excel,ZYdFRfOd67807
+edbs, ,http://www.thueringen.de/de/tlvermgeo/landesvermessung/dlm/content.html
+eigenes system, ,http://doku.uba.de/cgi-bin/g2kadis?WEB=JA&ADISDB=AK&SATZNR=00340713
+epub, ,ZYdFRfOd173730
+esri,application/octet-stream+esri,http://data.dc.gov/downloads/4ba153932c3457053f000f11
+esri arc export, ,GhmOhDGT961
+esri grid,application/octet-stream+esri,DCmwVKOK1079
+esri shape,application/octet-stream+esri,GhmOhDGT1093
+esri shape file,application/octet-stream+esri,GhmOhDGT667
+esri shape files,application/octet-stream+esri,DCmwVKOK979
+esri shapefile,application/octet-stream+esri,DCmwVKOK871
+"esri-shape, wms-dienst",application/octet-stream+esri,http://www.umwelt.niedersachsen.de/master/C6960508_N6926932_L20_D0_I598.html
+example rdf/xml,application/rdf+xml,ZYdFRfOd10689
+example/n-triples,text/plain+triples,DCmwVKOK21781
+example/rdf,application/rdf+xml,KiOaXHDl17424
+example/rdf xml,application/rdf+xml,DCmwVKOK15402
+example/rdf+xml,application/rdf+xml,DCmwVKOK10524
+example/rdfa,text/html+rdfa,DCmwVKOK10774
+examples/ntriples,text/plain+triples,DCmwVKOK10745
+excel,application/vnd.ms-excel
+feature-class in file-geodatabase, ,http://www.umwelt.niedersachsen.de/master/C6960508_N6926932_L20_D0_I598.html
+file, ,http://www.data-publica.com/en/data-publications/20110309-13
+fixed width,text/tsv,DCmwVKOK11323
+flash, ,GhmOhDGT223
+format-xls,application/vnd.ms-excel,DCmwVKOK22171
+fusion tables, ,DCmwVKOK3077
+gdocs,api/vnd.google-spreadsheet,DCmwVKOK24201
+gdocs/ccc,api/vnd.google-spreadsheet,DCmwVKOK3980
+gdocs/spreadsheet,api/vnd.google-spreadsheet,ZYdFRfOd12956
+genensis (geplant),text/csv,http://www.destatis.de/jetspeed/portal/cms/Sites/destatis/Internet/DE/Navigation/Publikationen/Querschnittsveroeffentlichungen/StatistikRegional.psml
+geojson,application/json+geo,DCmwVKOK7530
+georss,application/georss+xml,DCmwVKOK59617
+gif, ,DCmwVKOK85913
+gis, ,GhmOhDGT144770
+git,api/git,DCmwVKOK8561
+gml,text/xml+gml,GhmOhDGT3682
+"gml, shape, html mm.",application/octet-stream+esri,ZYdFRfOd175698
+google doc,api/vnd.google-spreadsheet,DCmwVKOK10608
+google fusion table, ,ZYdFRfOd152616
+google spreadsheet,api/vnd.google-spreadsheet,DCmwVKOK6075
+googledoc,api/vnd.google-spreadsheet,DCmwVKOK24790
+googlespreadsheet,api/vnd.google-spreadsheet,DCmwVKOK25306
+grafika,image/,GhmOhDGT144290
+gtfs,api/gtfs,GhmOhDGT129642
+gz, ,ZYdFRfOd35219
+gz (txt),text/plain,ZYdFRfOd35240
+gz:txt,text/plain,ZYdFRfOd17152
+gz:xml,application/xml,DCmwVKOK4751
+gzip,application/gzip,DCmwVKOK26286
+gzip+txt,application/gzip,GhmOhDGT8086
+gzipped tarball, ,DCmwVKOK112760
+hmtl,text/html,lkFmPWAk120637
+hoja de cálculo, ,GhmOhDGT134838
+htm,text/html,DCmwVKOK97090
+html,text/html,DCmwVKOK221
+html | pdf,application/pdf,DCmwVKOK7043
+html page,text/html,DCmwVKOK14981
+html-search,api/search,GhmOhDGT144170
+"html, pdf",text/html,DCmwVKOK95309
+"html, xls",application/vnd.ms-excel,DCmwVKOK95995
+"html, xls, pdf",application/vnd.ms-excel,DCmwVKOK96206
+"html, xml, json",text/xml,KiOaXHDl17419
+html/doc,application/vnd.ms-word,DCmwVKOK96542
+html/ical,text/calendar,ZYdFRfOd49488
+html/icalendar,text/calendar,ZYdFRfOd49652
+html/json, ,http://localhost:5000/package/trafikanten-trafikkdata
+html/pdf,text/html,DCmwVKOK95160
+html/xls,application/vnd.ms-excel,DCmwVKOK28
+html+rdfa,text/html+rdfa,DCmwVKOK36415
+ical,text/calendar,DCmwVKOK59505
+imagen,image/,GhmOhDGT135520
+imagen/texto,text/plain,GhmOhDGT134621
+index,text/html,DCmwVKOK28733
+index/directory,text/html,DCmwVKOK16324
+index/ftp, ,DCmwVKOK9194
+index/html,text/html,DCmwVKOK15310
+index/list, ,ZYdFRfOd31071
+info, ,GhmOhDGT2256
+ingres, ,http://www.lua.nrw.de/anlagen/isa.htm
+internetseite,text/html,https://www-genesis.destatis.de/genesis/online?sequenz=tabelleErgebnis&selectionname=11111-0002&KENNUNG=GK105862&PASSWORT=roFl0815&sprache=de
+jar,application/zip,DCmwVKOK14919
+jp, ,http://www.thueringen.de/de/tlvermgeo/vertrieb/luftbilder/orthophotos/content.html
+jpeg,image/jpeg,DCmwVKOK95723
+jpg,image/jpeg,DCmwVKOK1422
+js,application/json,ZYdFRfOd7813
+json,application/json,DCmwVKOK3590
+json or xml,application/json,DCmwVKOK27371
+jsonp,application/json,DCmwVKOK27896
+kml,application/vnd.google-earth.kml+xml,http://data.dc.gov/downloads/4ba153902c3457053f000ec9
+kml/kmz,application/vnd.google-earth.kml+xml,DCmwVKOK1068
+kml/shp,application/octet-stream+esri,DCmwVKOK11725
+kmz,application/vnd.google-earth.kml+xml,http://arvada.org/downloads/4c7cac192c345778290002e5
+map, ,http://data.dc.gov/downloads/4ba153902c3457053f000edb
+mapinfo, ,TUyomaoD19
+mapinfo tab, ,DCmwVKOK1535
+mapping, ,DCmwVKOK26345
+mapping/<owl>,application/rdf+xml,KiOaXHDl15410
+mapping/dbpedia,application/rdf+xml,DCmwVKOK26351
+maps, ,http://data.gov/downloads/4c7334472c345748a900001f
+marc,application/marc,DCmwVKOK9910
+marc 21,application/marc,DCmwVKOK4465
+marc-xml,application/marc,lYcTXIyE525
+marc/xml,application/marc,DCmwVKOK3091
+marc21,application/marc,DCmwVKOK24274
+mb, ,GhmOhDGT5192
+mdb,application/vnd.ms-access,DCmwVKOK1132
+meta/rdf-schema,application/rdf+xml,DCmwVKOK1711
+meta/schema,application/rdf+xml,DCmwVKOK4153
+meta/void, ,DCmwVKOK10527
+microsoft doc,application/vnd.ms-word,lYcTXIyE118
+microsoft mdb,application/vnd.ms-access,lYcTXIyE169
+mobi, ,ZYdFRfOd173736
+mods, ,lYcTXIyE527
+ms access,application/vnd.ms-access,DCmwVKOK29005
+mysql,text/sql,http://www.geoportal-hamburg.de/hmdk_daten/start.jpg
+mysql-dump,text/sql,DCmwVKOK112732
+"mysql,csv",text/sql,DCmwVKOK4294
+n-triples,text/plain+triples,DCmwVKOK2036
+n/a, ,DCmwVKOK2882
+nas, ,http://www.adv-online.de
+netcdf, ,DCmwVKOK10646
+nquads,text/plain+triples,DCmwVKOK2047
+ntf, ,DCmwVKOK70543
+nvd, ,lYcTXIyE171
+oai,api/oai-pmh,DCmwVKOK4768
+odin unter unix, ,http://www.bsh.de/de/Meeresdaten/Beobachtungen/BLMP-Messprogramm/index.jsp
+odp,application/vnd.oasis.opendocument.presentation,DCmwVKOK84917
+ods,"application/vnd.
+oasis.opendocument.
+spreadsheet",DCmwVKOK14807
+odt, ,ZYdFRfOd130169
+ontology,application/rdf+xml,DCmwVKOK22851
+openoffice, ,DCmwVKOK112746
+optteyii, ,ZYdFRfOd7849
+oracle,text/sql,http://www.ais-i.de/servlet/is/42115/
+oraclel,text/sql,http://www.schleswig-holstein.de/UmweltLandwirtschaft/DE/Abfall/03_Abfallmengen/01_Siedlungsabfallbilanz/ein_node.html
+other, ,DCmwVKOK5271
+other html,text/html,DCmwVKOK36268
+otros, ,GhmOhDGT134803
+owl,application/rdf+xml,DCmwVKOK29002
+papier, ,http://www.hamburg.de/contentblob/320926/data/kartenverzeichnis.pdf
+papierkarten, ,http://www.umweltkarten.mv-regierung.de/atlas/script/index.php?aid=95
+paradox unter windows, ,http://bug-srv-03275/gsbl-web/cgi-bin/dbgate.exe?action=CMDSTART
+pc-axis,application/vnd.pc-axis,GhmOhDGT102398
+pcx, ,http://www.lv-bw.de/
+pdf,application/pdf,DCmwVKOK693
+pdf / xls,application/vnd.ms-excel,DCmwVKOK6030
+pdf-datei,application/pdf,http://www.schleswig-holstein.de/UmweltLandwirtschaft/DE/ImmissionKlima/02_Luftqualitaet/01_Allgemein/04_Aktuelles/ein_node.html
+pdf-download,application/pdf,http://www.schleswig-holstein.de/UmweltLandwirtschaft/DE/Abfall/06_BauAbbruchabfaelle/02_NorddeutscheVereinbarung/ein_node.html
+pdv, ,http://www.uni-hohenheim.de/bodenatlas-bawue/
+php, ,DCmwVKOK5218
+phpbb, ,DCmwVKOK14987
+plain text,text/plain,DCmwVKOK3055
+png,image/png,DCmwVKOK10649
+png jpg,image/png,DCmwVKOK95564
+png jpg txt,image/png,DCmwVKOK96531
+por, ,GhmOhDGT124819
+portable document file,application/pdf,ZYdFRfOd123191
+powerpoint,application/vnd.ms-powerpoint,DCmwVKOK63770
+ppt,application/vnd.ms-powerpoint,jvQfKFmD40512
+rdf,application/rdf+xml,DCmwVKOK2738
+rdf (gzipped),application/rdf+xml,DCmwVKOK23952
+rdf/iso2709, ,DCmwVKOK8721
+rdf/n3,application/n3,http://semantic.ckan.net/catalogue.n3
+rdf/notation3,application/n3,http://semantic.ckan.net/package/c/k/ckan.n3
+rdf/nquads,text/plain+triples,http://quebec.bio2rdf.org/download/data/hgnc/hgnc.nq.gz
+rdf/ntriples,text/plain+triples,http://quebec.bio2rdf.org/download/data/chebi/chebi.n3.gz
+rdf/turtle,text/turtle,http://eculture.cs.vu.nl/git/vocs/cornetto.git?a=tree;f=rdf;hb=HEAD
+rdf/xml,application/rdf+xml,http://www.rdfabout.com/rdf/usgov/geo/us/ny
+"rdf/xml, turtle, html",application/rdf+xml,DCmwVKOK10548
+rdf+xml,application/rdf+xml,ZYdFRfOd18383
+rdfa,text/html+rdfa,http://dbpedia.org/page/DBpedia
+relationale datenbank oracle,text/sql,http://doku.uba.de/cgi-bin/g2kadis?WEB=JA&ADISDB=AK&SATZNR=00446257
+rest,api/rest,http://arvada.org/downloads/4c99ad2a2c34577829000b05
+rest api,api/rest,DCmwVKOK96226
+rinex 2.1, ,http://www.SAPOS.GeoNord.de
+ris, ,lYcTXIyE531
+rss,application/rss+xml,DCmwVKOK845
+rtf,application/x-rtf,ZYdFRfOd89523
+scraperwiki, ,ZYdFRfOd30221
+sdf, ,ZoaAgpFB21508
+search,api/search,GhmOhDGT144122
+semantic sitemap,application/rdf+xml,DCmwVKOK161
+sequentielle datei, ,http://doku.uba.de/cgi-bin/g2kadis?WEB=JA&ADISDB=AK&SATZNR=00217945
+sequentielle dateien im bml, ,http://doku.uba.de/cgi-bin/g2kadis?WEB=JA&ADISDB=AK&SATZNR=00377939
+service/gdocs/ccc,api/vnd.google-spreadsheet,DCmwVKOK3912
+service/wms,application/vnd.ogc.wms_xml,DCmwVKOK112699
+services/docs/spreadsheet,api/vnd.google-spreadsheet,DCmwVKOK5561
+services/gdocs/spreadsheet,api/vnd.google-spreadsheet,DCmwVKOK25217
+sgml,text/sgml,http://www.fda.gov/downloads/4c4f3a042c34571eb600000f
+shape,application/octet-stream+esri,DCmwVKOK16665
+shape (fläche),application/octet-stream+esri,http://www.lau.sachsen-anhalt.de/
+shape (fläche)  shape (fläche),application/octet-stream+esri,http://www.lau.sachsen-anhalt.de
+shape (punkt),application/octet-stream+esri,http://www.lau.sachsen-anhalt.de
+shape-file,application/octet-stream+esri,http://www.umweltkarten.mv-regierung.de/script/?aid=123
+shape-files,application/octet-stream+esri,http://www.loebf.nrw.de/Willkommen/DatenFakten/index.html
+"shape, jpg, pdf",application/octet-stream+esri,viDvxfTD178238
+shapefile,application/octet-stream+esri,DCmwVKOK2708
+shapefiles,application/octet-stream+esri,http://www.umweltkarten.niedersachsen.de/koopnat
+shp,application/octet-stream+esri,http://arvada.org/downloads/4c8dcfa12c345748a9000a40
+sir, ,http://www.rki.de/cln_100/nn_204078/DE/Content/GBE/DachdokKrebs/Datenbankabfragen/Neuerkrankungen/neuerkrankungen__node.html?__nnn=true
+skos,application/rdf+xml,DCmwVKOK332
+solr, ,DCmwVKOK4762
+sparql,api/sparql,DCmwVKOK15776
+sparql endpoint,api/sparql,GhmOhDGT127922
+spreadsheet, ,DCmwVKOK321
+sps,text/vnd.spss.sav,GhmOhDGT124845
+spss,text/vnd.spss.sav,DCmwVKOK4279
+sqd, ,http://www.geoportal-hamburg.de/hmdk_daten/HH_Vermessungsgesetz_2005.pdf
+sql,text/sql,DCmwVKOK2879
+sql/zip,text/sql,ZYdFRfOd17637
+sqlite,text/sql,DCmwVKOK2760
+sqlite 3,text/sql,GhmOhDGT127823
+src-hg/python,api/mercurial,DCmwVKOK21357
+sru, ,DCmwVKOK4765
+ss 637004, ,lYcTXIyE175
+standardisierte ascii-formate,text/plain,http://www.bfs.de/uv/uv2/uvi/messnetz.html
+standortadresse, ,http://gip.megatel.de/index.jsp?anw=mobil
+stata,text/x-stata-syntax,DCmwVKOK5101
+tab,text/tsv,GhmOhDGT4155
+tar.gz, ,DCmwVKOK15662
+text,text/plain,DCmwVKOK9977
+text/html; charset=utf-8,text/html,https://www-genesis.destatis.de/genesis/online?sequenz=tabelleKarte&selectionname=11111-0001&KENNUNG=GK105862&PASSWORT=roFl0815&sprache=de
+text/n3,application/n3,http://semantic.ckan.net/catalogue.n3
+text/rss+xml,application/rss+xml,GhmOhDGT130020
+text/sql+gz,text/sql,DCmwVKOK15046
+text/tab-separated-values,text/tsv,DCmwVKOK725
+texto,text/plain,GhmOhDGT134632
+tgz, ,DCmwVKOK3197
+tgz:xml,text/xml,DCmwVKOK17252
+tgz|tsv,text/tsv,DCmwVKOK24035
+tif, ,http://www.gd.nrw.de/g_details.php?id=2643
+tiff,image/tiff,GhmOhDGT144407
+tiff-lzw, ,DCmwVKOK70452
+tool, ,http://www.accessdata.fda.gov/downloads/4c4f402c2c34571eb6000012
+torrent, ,DCmwVKOK2855
+tsv,text/tsv,DCmwVKOK725
+turtle, ,KiOaXHDl27495
+twitorto, ,lkFmPWAk281
+txc, ,WXqLAZKT110064
+txt,text/plain,DCmwVKOK1355
+udk 4.2sp2, ,http://www.hmdk.de
+varios, ,GhmOhDGT134518
+various, ,DCmwVKOK1500
+vsd, ,ZYdFRfOd128690
+wc, ,http://localhost:5000/package/offentliche-wc-anlagen-standorte1
+web form,text/html,DCmwVKOK16608
+web link,text/html,DCmwVKOK70221
+web page,text/html,DCmwVKOK16171
+web services,api/soap,DCmwVKOK26348
+"web services, html",text/html,viDvxfTD178241
+web site,text/html,DCmwVKOK16174
+webservice, ,https://www-genesis.destatis.de/genesisWS/services/DownloadService_2009?method=KarteDownload&kennung=GK105862&passwort=roFl0815&name=11111-0001&bereich=Alle&gitternetz=false&klassenanzahl=5&klasseneinteilung=0&reihenauswahl=1&regionalmerkmal=&regionalschluessel=&auftrag=false&stand=01.01.1900&sprache=de
+website,text/html,DCmwVKOK22848
+wfs,application/vnd.ogc.wfs_xml,badestellen-standorte
+wfs - gml,application/vnd.ogc.wfs_xml,DCmwVKOK95912
+win word 97,application/vnd.ms-word,http://www.bafg.de/html/projekte/intorg/intorg.htm
+winword,application/vnd.ms-word,http://umwelt.schleswig-holstein.de/?24568
+winword voliegend,application/vnd.ms-word,http://www.naturparke.de
+wms,application/vnd.ogc.wms_xml,	  http://rpgmagdeburg.regionmagdeburg.de/UMN/php/mapserv.php?REQUEST=getCapabilities&FB=WMSREPMagdeburg
+word,application/vnd.ms-word,ZYdFRfOd61272
+wyec2, ,GhmOhDGT1881
+xhtml,text/xml,DCmwVKOK285
+xlm,text/xml,GhmOhDGT2466
+xls,application/vnd.ms-excel
+xls (zip),application/vnd.ms-excel,DCmwVKOK95095
+xls-html,application/vnd.ms-excel,GhmOhDGT8044
+"xls, csv",application/vnd.ms-excel,DCmwVKOK97272
+"xls, html, ascii",application/vnd.ms-excel,DCmwVKOK95142
+"xls, html, pdf",application/vnd.ms-excel,DCmwVKOK95951
+xls/doc,application/vnd.ms-excel,DCmwVKOK96688
+xlsx,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,DCmwVKOK49997
+xml,text/xml,http://data.dc.gov/downloads/4ba153902c3457053f000ecc
+xml (current country),text/xml,DCmwVKOK4440
+xml (current metro),text/xml,DCmwVKOK4443
+xml (current),text/xml,DCmwVKOK4428
+xml (tomorrow country),text/xml,DCmwVKOK4434
+xml (tomorrow metro),text/xml,DCmwVKOK4437
+xml (tomorrow),text/xml,DCmwVKOK4431
+xml /  jpg,text/xml,DCmwVKOK1214
+xml jason csv,text/csv,DCmwVKOK112573
+"xml, json",application/json,DCmwVKOK4297
+xml/atom/rss,application/atom+xml,DCmwVKOK12620
+xpi, ,DCmwVKOK29240
+yaml,application/x-yaml,DCmwVKOK27893
+zip,application/zip,DCmwVKOK565
+zip archive,application/zip,DCmwVKOK3456
+zip file, ,jvQfKFmD4891
+"zip, csv",text/csv,DCmwVKOK519
+"zip, shp",application/octet-stream+esri,DCmwVKOK525
+zip:csv,text/csv,DCmwVKOK373
+zipped csv,text/csv,ZYdFRfOd61309
+ , ,ZYdFRfOd31595
+ , ,OXAFJLTP47
+ , ,viDvxfTD32727
+ , ,arrete-municipaux-dinsalubrite1
+ , ,http://localhost:5000/package/bati-donnees-geographiques
+ , ,http://pdeu.test.ckan.net/package/abortions
+unverified, ,http://pdeu.test.ckan.net/package/acidity-of-stream-water
+mif−mid, ,http://pdeu.test.ckan.net/package/ala-de-retrait-de-gonflement-des-argiles
+.xls,application/vnd.ms-excel,http://pdeu.test.ckan.net/package/ap-andgl-expenditure-march-2011
+other xml,text/xml,http://pdeu.test.ckan.net/package/ask-bristol
+geotif, ,http://pdeu.test.ckan.net/package/carta-tecnica-provincia-autonoma-di-trento-in-formato-raster-in-media-risoluzione-10000
+.pdf,application/pdf,http://pdeu.test.ckan.net/package/cartographie-de-lobservatoire-du-val-de-saone
+iso, ,http://pdeu.test.ckan.net/package/cdrom-temi-territoriali-servizio-urbanistica-tutela-paesaggio-provincia-autonoma-trento
+comma separated variable (csv),text/csv,http://pdeu.test.ckan.net/package/flussi-turistici-per-territorio-a-raggruppamento-per-unita-territoriale
+aree,application/octet-stream+esri,http://pdeu.test.ckan.net/package/fotointerpretazione-artificiale-del-reticolo-idrografico-principale
+.html,text/html,http://pdeu.test.ckan.net/package/human-fertilisation-and-embryology-authority-tender-over-10k
+linee,application/octet-stream+esri,http://pdeu.test.ckan.net/package/idrografia-1-100-000-canali
+tabella, ,http://pdeu.test.ckan.net/package/idrografia-1-100-000-tabella-corpi-idrici
+pdf file,application/pdf,http://pdeu.test.ckan.net/package/invoices-over-25000
+text/csv,text/csv,http://pdeu.test.ckan.net/package/parteispenden
+ , ,http://pdeu.test.ckan.net/package/abortions
+application/rtf, ,http://pdeu.test.ckan.net/package/culture_fund_budget_for_2007
+tomtom, ,http://pdeu.test.ckan.net/package/dati-traffico-strade-provincia-autonoma-di-trento
+garmin, ,http://pdeu.test.ckan.net/package/dati-traffico-strade-provincia-autonoma-di-trento
+excel (xml),application/vnd.ms-excel,http://pdeu.test.ckan.net/package/financial-transactions-data-royal-cornwall-hospitals-nhs-trust-april-2011
+punti,application/octet-stream+esri,http://pdeu.test.ckan.net/package/progetti-di-interventi-di-difesa-del-suolo

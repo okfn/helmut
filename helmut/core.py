@@ -1,5 +1,4 @@
 from flask import Flask, request
-from pymongo import Connection
 from solr import SolrConnection
 
 from helmut import default_settings
@@ -21,11 +20,7 @@ def request_format(fmt):
 
 app = Flask(__name__)
 app.config.from_object(default_settings)
-app.config.from_envvar('RECON_SETTINGS', silent=True)
-
-conn = Connection(app.config['MONGO_HOST'])
-db = conn[app.config['MONGO_DB']]
-entities = db[app.config['MONGO_COLLECTION']]
+app.config.from_envvar('HELMUT_SETTINGS', silent=True)
 
 solr_host = app.config['SOLR_HOST']
 

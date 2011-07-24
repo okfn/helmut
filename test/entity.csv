@@ -1,0 +1,67 @@
+mimetype,name,title,description
+text/csv,CSV,Comma-Separated Values
+text/tsv,TSV,Tab-Separated Values
+application/vnd.oasis.opendocument.presentation,ODP,OpenOffice Presentation
+application/vnd.ms-powerpoint,PPT,Microsoft PowerPoint
+application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,XSLX,Microsoft Excel 2007
+text/html,HTML,Hypertext Markup Language
+application/json,JSON,JavaScript Object Notation
+text/plain,Plain Text,Plain Text
+application/octet-stream+esri,Shapefile,ESRI Shape File
+application/vnd.ms-word,Word,Microsoft Word
+application/vnd.ms-access,Access,Microsoft Access
+text/xml,XML,Extensible Markup Language
+text/sql,SQL ,Structured Query Language
+application/marc,Marc,MARC Bibliographic Records
+application/vnd.google-earth.kml+xml,KML,Google Earth KML
+application/json+geo,GeoJSON,GeoJSON
+application/rdf+xml,RDF/XML,Resource Description Framework (XML)
+text/turtle,RDF/Turtle,Resource Description Framework (Turtle)
+text/html+rdfa,RDFa,Resource Description Framework (RDFa)
+text/plain+triples,RDF/NTriples,Resource Description Framework (NTriples)
+application/n3,RDF/Notation3,Resource Description Framework (Notation3)
+application/zip,ZIP File,Zipped File
+text/sgml,SGML,Standard Generalized Markup Language
+application/vnd.ogc.wms_xml,WMS,OGC Web Map Service
+application/x-yaml,YAML,YAML Ain't Markup Language
+application/gzip,GZip,GZip Compressed File
+application/atom+xml,Atom,AtomPub Feed
+application/pdf,PDF,Adobe Portable Document Format
+application/rss+xml,RSS,Really Simple Syndication (XML)
+image/svg+xml,SVG,Scalable Vector Graphics (XML)
+application/x-protobuf,ProtoBuf,Google Protocol Buffers
+api/vnd.google-spreadsheet,Google Spreadsheet,Google Docs Spreadsheet
+api/sparql,SPARQL,SPARQL Query Endpoint
+text/x-stata-syntax,Stata,Stata Syntax
+api/oai-pmh,OAI-PMH,Open Archive Intiative Metadata Harvesting Endpoint
+api/mercurial,HG,Mercurial DVCS
+text/calendar,iCal,iCalendar
+image/png,PNG,Portable Network Graphics
+api/rest,REST API,Representational State Transfer API
+application/rdf+json,RDF/JSON,Resource Description Framework (JSON)
+"application/vnd.
+oasis.opendocument.
+spreadsheet",ODS,OpenOffice Spreadsheet
+application/vnd.ogc.wfs_xml,WFS,OGC Web Feature Service
+application/vnd.ms-excel,Excel,Microsoft Excel
+image/jpeg,JPEG,JPEG Image
+text/c,C Code,C Program Code
+application/vnd.ms-powerpoint,PowerPoint,Microsoft PowerPoint
+api/git,Git,Git DVCS
+application/x-dwf,AutoCAD Web,AutoCAD Design Web Format
+application/vnd.google-earth.kmz,KMZ,Google Maps (KMZ)
+application/georss+xml,GeoRSS,GeoRSS Enriched News Feed
+text/vnd.dxf,AutoCAD Text,AutoCAD Drawing Exchange Format
+text/xml+gml,GML,Geography Markup Language Document
+text/vnd.spss.sav,SPSS,SPSS SAV File
+application/vnd.pc-axis,PC-Axis,PC-Axis Statistical Data
+application/octet-stream,Binary,Binary Data (unspecified)
+application/xml
+image/
+api/search
+image/tiff
+missing
+application/x-dbase,dBase,dBase Database File
+application/x-rtf,RTF,Rich Text Format File
+application/wsdl+xml,WSDL,Web Services Description Language
+api/soap

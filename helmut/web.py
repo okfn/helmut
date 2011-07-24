@@ -7,8 +7,9 @@ from jinja2 import evalcontextfilter
 from bson.dbref import DBRef
 from bson.objectid import ObjectId
 
-from helmut.core import app, entities, solr, request_format
+from helmut.core import app, solr, request_format
 from helmut.query import query
+from helmut.types import Type
 from helmut.pager import Pager
 
 # Specific to Freebase: type system. TODO: properly implement 
@@ -63,21 +64,23 @@ def search():
     pager = Pager(request.args)
     return render_template('search.tmpl', pager=pager)
 
-@app.route('/%(ENTITY_NAME)s/<path:path>.<format>' % app.config)
-@app.route('/%(ENTITY_NAME)s/<path:path>' % app.config)
-def entity(path, format=None):
-    entity = entities.find_one({'path': path})
+@app.route('/<type>/<path:key>.<format>')
+@app.route('/<type>/<path:key>')
+def entity(type, key, format=None):
+    type_ = Type.by_name(type)
+    if type_ is None:
+        abort(404)
+    entity = type_.by_key(key)
     if entity is None:
         abort(404)
-    del entity['_id']
-    entity['%(ENTITY_NAME)s_url' % app.config] = \
-            url_for('entity', path=path, _external=True)
+    del entity['__id__']
+    entity['__url__'] = url_for('entity', type=type, key=key, _external=True)
     format = request_format(format)
     if format == 'json':
         return jsonify(entity)
-    if 'redirect_url' in entity:
-        return redirect(entity.get('redirect_url'),
-                        code=303)
+    #if 'redirect_url' in entity:
+    #    return redirect(entity.get('redirect_url'),
+    #                    code=303)
     return render_template('view.tmpl', entity=entity)
 
 
@@ -155,5 +158,5 @@ def reconcile():
         return jsonify(meta)
 
 if __name__ == "__main__":
-    app.run()
+    app.run(port=5005)
 
