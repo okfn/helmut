@@ -1,6 +1,6 @@
 from flaskext.script import Manager
 
-from helmut.core import app
+from helmut.core import app, solr
 from helmut.types import Type
 
 manager = Manager(app)
@@ -15,6 +15,11 @@ def index(type_name):
     else:
         type_.index()
 
+@manager.command
+def reset():
+    """ Reset the entire search index. """
+    conn = solr()
+    conn.delete_query('*:*')
 
 if __name__ == "__main__":
     manager.run()

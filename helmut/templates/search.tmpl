@@ -11,7 +11,8 @@
     
     <ul>
     {% for result in pager %}
-      <li><a href="{{ url_for('entity', path=result.get('path')) }}">{{ result.get('title') }}</a></li>
+      <li><a href="{{ url_for('entity', type=result.get('__type__'),
+          key=result.get('__key__')) }}">{{ result.get('title') }}</a></li>
     {% endfor %}
     </ul>
 

@@ -2,7 +2,7 @@ import json
 from datetime import datetime
 
 from flask import abort, g, request, url_for, Response
-from flask import render_template, redirect
+from flask import render_template #, redirect
 from jinja2 import evalcontextfilter
 from bson.dbref import DBRef
 from bson.objectid import ObjectId
@@ -11,13 +11,6 @@ from helmut.core import app, solr, request_format
 from helmut.query import query
 from helmut.types import Type
 from helmut.pager import Pager
-
-# Specific to Freebase: type system. TODO: properly implement 
-# handling of multiple types.
-_recon_type = {
-        'id': '/' + app.config['ENTITY_NAME'],
-        'name': app.config['ENTITY_NAME'].capitalize()
-    }
 
 
 @app.template_filter()
@@ -95,15 +88,29 @@ def _query(q):
 
     filters = [(p.get('p'), p.get('v', '*')) for p in \
                q.get('properties', []) if 'p' in p]
+    types = q.get('types')
+    if types is not None:
+        if isinstance(types, basestring):
+            types = [types]
+        types = map(lambda t: t.strip().lstrip('/'), types)
+        filters.extend([('__type__', t) for t in types])
+        # todo: implement types_strict
     results = query(g.solr, q.get('query'), filters=filters, rows=limit)
     matches = []
     for result in results.get('response', {}).get('docs', []):
+        id = url_for('entity', type=result.get('__type__'),
+                key=result.get('__key__'))
+        uri = url_for('entity', type=result.get('__type__'),
+                key=result.get('__key__'), _external=True)
         matches.append({
             'name': result.get('title'),
             'score': result.get('score') * 2000,
-            'type': [_recon_type],
-            'id': '/' + app.config['ENTITY_NAME'] + '/' + result.get('path'),
-            'uri': url_for('entity', path=result.get('path'), _external=True),
+            'type': [{
+                'id': '/' + result.get('__type__'),
+                'name': result.get('__type__')
+                }],
+            'id': id,
+            'uri': uri,
             'match': False
             })
 
@@ -144,6 +151,7 @@ def reconcile():
         return jsonify(queries)
     else:
         urlp = url_for('index', _external=True).strip('/') + '{{id}}'
+        types = [{'name': t.name, 'id': '/' + t.name} for t in Type.types()]
         meta = {
                 'name': app.config['TITLE'],
                 'identifierSpace': 'http://rdf.freebase.com/ns/type.object.id',
@@ -154,7 +162,7 @@ def reconcile():
                     'width': 400,
                     'height': 300
                     },
-                'defaultTypes': [_recon_type]
+                'defaultTypes': types
                 }
         return jsonify(meta)
 

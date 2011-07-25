@@ -1,5 +1,5 @@
+import sys
 from datetime import datetime
-#from urllib import quote
 from dateutil import tz
 
 from webstore.client import Database
@@ -15,8 +15,9 @@ def datetime_add_tz(dt):
 
 class Type(object):
 
-    def __init__(self, db_user, db_name, entity_table, entity_key, 
+    def __init__(self, name, db_user, db_name, entity_table, entity_key, 
                  alias_table, alias_text, alias_key):
+        self.name = name
         self.entity_table = entity_table
         self.entity_key = entity_key
         self.alias_text = alias_text
@@ -38,6 +39,7 @@ class Type(object):
         if len(rows):
             self.conn.add_many(rows)
         self.finalize()
+        sys.stdout.write(" ok.\n")
 
     def row_to_index(self, row):
         key = row.get(self.entity_key)
@@ -47,7 +49,11 @@ class Type(object):
         row['alias'] = aliases
         row['title.n'] = normalize(row.get('title'))
         row['alias.n'] = map(normalize, aliases)
-        row['__type__'] = self.entity_table
+        row['__type__'] = self.name
+        row['__key__'] = key
+        row['__id__'] = self.name + ':' + key
+        sys.stdout.write('.')
+        sys.stdout.flush()
         return row
 
     def finalize(self):
@@ -67,7 +73,8 @@ class Type(object):
 
     @classmethod
     def _row_to_type(cls, row):
-        return cls(row['db_user'],
+        return cls(row['name'],
+                   row['db_user'],
                    row['db_name'],
                    row['entity_table'],
                    row['entity_key'],
