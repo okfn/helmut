@@ -18,10 +18,12 @@
       {% for k, v in entity.items() %}
         <tr>
           <td>{{ k }}</td>
-          <td>{{ v }}</td>
+          <td>{{ v or '' }}</td>
         </tr>
       {% endfor %}
     </table>
+    <hr />
+    <a href="{{ url }}.json">JSON</a>
   </div>
 {% endblock %}
 

@@ -74,14 +74,15 @@ def entity(type, key, format=None):
     if entity is None:
         abort(404)
     del entity['__id__']
-    entity['__url__'] = url_for('entity', type=type, key=key, _external=True)
+    url = url_for('entity', type=type, key=key, _external=True)
     format = request_format(format)
     if format == 'json':
+        entity['_url'] = url
         return jsonify(entity)
     #if 'redirect_url' in entity:
     #    return redirect(entity.get('redirect_url'),
     #                    code=303)
-    return render_template('view.tmpl', entity=entity)
+    return render_template('view.tmpl', entity=entity, url=url)
 
 
 def _query(q):

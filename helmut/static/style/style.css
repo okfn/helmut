@@ -187,7 +187,10 @@ footer .site {
   float: left; 
 }
 
-
+/* View page */
+table th {
+  text-align: left;
+}
 
 
 
