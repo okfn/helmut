@@ -1,0 +1,28 @@
+{% import "macros.tmpl" as macros %}
+{% extends "layout.tmpl" %}
+
+{% block title %}
+  Login
+{% endblock %}
+
+{% block content %}
+  <div class="box">
+    <h1>Login</h1>
+    <form action="" method="POST">
+      <dl>
+        <dt><label for="login">Login:</label></dt>
+        <dd><input name="login"></dd>
+      </dl>
+      <dl>
+        <dt><label for="password">Password:</label></dt>
+        <dd><input name="password" type="password"></dd>
+      </dl>
+      <dl>
+        <dt><input name="Login" type="submit"></dt>
+      </dl>
+    </form>
+  </div>
+{% endblock %}
+
+
+

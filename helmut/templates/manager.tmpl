@@ -1,0 +1,26 @@
+{% import "macros.tmpl" as macros %}
+{% extends "layout.tmpl" %}
+
+{% block title %}
+  Type Manager
+{% endblock %}
+
+{% block content %}
+  <div class="box">
+    <h1>Types</h1>
+    <br/>
+    <table width="100%">
+      <tr>
+        <th>Name</th>
+      </tr>
+      {% for t in types %}
+        <tr>
+          <td><a href="{{ url_for('manage', type=t.name) }}">{{ t.name }}</a></td>
+        </tr>
+      {% endfor %}
+    </table>
+  </div>
+{% endblock %}
+
+
+
