@@ -106,6 +106,29 @@ h1 {
   font-size: 1.3em;
 }
 
+.flashes {
+  list-style-type: none;
+  margin: 0;
+}
+
+.flashes li {
+  padding: 0.5em;
+  text-align: center;
+  font-size: 1.1em;
+  font-weight: bold;
+  color: #fff;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+
+.flashes li.success {
+  background-color: #63a62f;
+}
+
+.flashes li.warning {
+  background-color: #920e14;
+}
+
 .site {
   margin: 0 auto;
   width: 600px;
@@ -172,6 +195,9 @@ footer .site {
   margin: 0 0 1em 0;
 }
 
+a.active_facet {
+  color: red;
+}
 
 /* Pager */
 .pager {
@@ -187,10 +213,25 @@ footer .site {
   float: left; 
 }
 
+/* Forms */
+form dl {
+  margin-top: 1em;
+}
+
+form label {
+  font-weight: bold;
+}
+
+form dt {
+  padding-bottom: 0.3em;
+}
+
 /* View page */
 table th {
   text-align: left;
 }
+
+
 
 
 

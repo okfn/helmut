@@ -1,7 +1,7 @@
 from flaskext.script import Manager
 
 from helmut.core import app, solr
-from helmut.types import Type
+from helmut.entity import Type
 
 manager = Manager(app)
 

@@ -9,13 +9,23 @@
   <div class="box">
     {{ macros.search(pager) }}
     
+    <strong>Type:</strong>
+    {% for type, num in pager.facet_values('__type__') %}
+      {% if pager.type_filtered(type) %}
+        <a class="active_facet" href="{{ pager.unfilter_url('type', type) }}">{{ type }}</a>
+      {% else %}
+        <a href="{{ pager.filter_url('type', type) }}">{{ type }}</a>
+      {% endif %}
+      ({{num}})
+    {% endfor %}
+    <br/><br/>
     <ul>
     {% for result in pager %}
       <li><a href="{{ url_for('entity', type=result.get('__type__'),
           key=result.get('__key__')) }}">{{ result.get('title') }}</a></li>
     {% endfor %}
     </ul>
-
+    <br/>
     {{ macros.pager(pager) }}
   </div>
 {% endblock %}

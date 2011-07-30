@@ -2,15 +2,18 @@ import json
 from datetime import datetime
 
 from flask import abort, g, request, url_for, Response
-from flask import render_template #, redirect
+from flask import render_template, redirect, flash
+from flaskext.login import login_user, logout_user
+from flaskext.login import current_user, login_required
 from jinja2 import evalcontextfilter
 from bson.dbref import DBRef
 from bson.objectid import ObjectId
 
 from helmut.core import app, solr, request_format
-from helmut.query import query
-from helmut.types import Type
+from helmut.reconcile import match
+from helmut.entity import Type
 from helmut.pager import Pager
+from helmut.auth import User
 
 
 @app.template_filter()
@@ -41,6 +44,10 @@ def jsonify(data):
         data = '%s(%s)' % (request.args.get('callback'), data)
     return Response(data, mimetype='application/json')
 
+@app.context_processor
+def set_current_user():
+    """ Set some template context globals. """
+    return dict(current_user=current_user)
 
 @app.before_request
 def before_request():
@@ -49,6 +56,7 @@ def before_request():
 
 @app.route('/')
 def index():
+    print current_user
     pager = Pager(request.args)
     return render_template('index.tmpl', pager=pager)
 
@@ -57,7 +65,7 @@ def search():
     pager = Pager(request.args)
     return render_template('search.tmpl', pager=pager)
 
-@app.route('/<type>/<path:key>.<format>')
+@app.route('/<type>/<path:key>.<any(json,html,rdf):format>')
 @app.route('/<type>/<path:key>')
 def entity(type, key, format=None):
     type_ = Type.by_name(type)
@@ -77,48 +85,38 @@ def entity(type, key, format=None):
     #                    code=303)
     return render_template('view.tmpl', entity=entity, url=url)
 
+@app.route('/manager/login', methods=['GET'])
+def login():
+    return render_template('login.tmpl')
 
-def _query(q):
-    if isinstance(q, basestring):
-        q = {'query': q}
-    try:
-        limit = max(1, min(100, int(q.get('limit'))))
-    except ValueError: limit = 5
-    except TypeError: limit = 5
+@app.route('/manager/login', methods=['POST'])
+def login_save():
+    user = User.check(request.form['login'],
+                     request.form['password'])
+    if user is None:
+        flash('Invalid username or password.', 'warning')
+        return render_template('login.tmpl')
+    else:
+        login_user(user)
+        return redirect(url_for('manager'))
 
-    filters = [(p.get('p'), p.get('v', '*')) for p in \
-               q.get('properties', []) if 'p' in p]
-    types = q.get('types')
-    if types is not None:
-        if isinstance(types, basestring):
-            types = [types]
-        types = map(lambda t: t.strip().lstrip('/'), types)
-        filters.extend([('__type__', t) for t in types])
-        # todo: implement types_strict
-    results = query(g.solr, q.get('query'), filters=filters, rows=limit)
-    matches = []
-    for result in results.get('response', {}).get('docs', []):
-        id = url_for('entity', type=result.get('__type__'),
-                key=result.get('__key__'))
-        uri = url_for('entity', type=result.get('__type__'),
-                key=result.get('__key__'), _external=True)
-        matches.append({
-            'name': result.get('title'),
-            'score': result.get('score') * 2000,
-            'type': [{
-                'id': '/' + result.get('__type__'),
-                'name': result.get('__type__')
-                }],
-            'id': id,
-            'uri': uri,
-            'match': False
-            })
+@app.route('/manager/logout', methods=['GET'])
+def logout():
+    logout_user()
+    flash('See you soon.', 'success')
+    return redirect(url_for('index'))
 
-    return {
-        'result': matches, 
-        'num': results.get('numFound')
-        }
+@app.route('/manager', methods=['GET'])
+@login_required
+def manager():
+    types = Type.types()
+    return render_template('manager.tmpl', types=types)
 
+@app.route('/manager/<type>', methods=['GET'])
+@login_required
+def manage(type):
+    type_ = Type.by_name(type)
+    return render_template('manage.tmpl', type=type_)
 
 @app.route('/reconcile', methods=['GET', 'POST'])
 def reconcile():
@@ -137,7 +135,7 @@ def reconcile():
                 q = json.loads(q)
             except ValueError:
                 abort(400)
-        return jsonify(_query(q))
+        return jsonify(match(q))
     elif 'queries' in data:
         # multiple requests in one query
         qs = data.get('queries')
@@ -147,7 +145,7 @@ def reconcile():
             abort(400)
         queries = {}
         for k, q in qs.items():
-            queries[k] = _query(q)
+            queries[k] = match(q)
         return jsonify(queries)
     else:
         urlp = url_for('index', _external=True).strip('/') + '{{id}}'

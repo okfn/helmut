@@ -37,3 +37,16 @@ def url_slug(text):
     text = text.replace(' ', '-')
     text = text.replace('.', '_')
     return text
+
+def tokenize(text, splits='COPZ'):
+    token = []
+    for c in unicode(text):
+        if category(c)[0] in splits:
+            if len(token):
+                yield u''.join(token)
+            token = []
+        else:
+            token.append(c)
+    if len(token):
+        yield u''.join(token)
+

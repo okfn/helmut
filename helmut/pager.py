@@ -1,7 +1,7 @@
 import math
 from flask import url_for, g
 
-from helmut.query import query
+from helmut.entity import Type
 
 FILTER_PREFIX = "filter-"
 
@@ -13,9 +13,8 @@ class Pager(object):
         try:
             self.page = int(args.get('p'))
         except: pass
-        self.limit = 20
+        self.limit = 30
         self._results = None
-        self.facets = []
 
     @property
     def offset(self):
@@ -48,50 +47,41 @@ class Pager(object):
         return [(k, v.encode('utf-8')) for k, v in self.args.items() \
                 if k != 'p']
 
-
     def page_url(self, page):
         return url_for('search', p=page, **dict(self.params))
-
 
     @property
     def filters(self):
         filters = []
-        for k, v in self.args.items():
-            if k.startswith(FILTER_PREFIX):
-                k = k[len(FILTER_PREFIX):]
-                filters.append((k, v))
+        if 'type' in self.args:
+            filters.append(('__type__', self.args.get('type')))
         return filters
 
+    def type_filtered(self, value):
+        return value in self.args.getlist('type')
 
     def filter_url(self, key, value):
         params = self.params
-        tp = (FILTER_PREFIX + key, value.encode('utf-8'))
+        tp = (key, value.encode('utf-8'))
         if tp not in params:
             params.append(tp)
         return url_for('search', **dict(params))
 
 
     def unfilter_url(self, key, value):
-        p = (FILTER_PREFIX + key, value.encode('utf-8'))
+        p = (key, value.encode('utf-8'))
         params = [e for e in self.params if e != p]
         return url_for('search', **dict(params))
-
-
-    def facet_by(self, *facets):
-        self.facets.extend(facets)
-
 
     @property
     def q(self): 
         return self.args.get('q', '') 
 
-
     @property
     def results(self):
         if self._results is None:
-            self._results = self.query() 
+            self._results = self.query()
         return self._results
-
 
     def __iter__(self):
         return iter(self.results.get('response', {}).get('docs'))
@@ -99,7 +89,6 @@ class Pager(object):
 
     def __len__(self):
         return self.results.get('response', {}).get('numFound')
-
 
     def facet_values(self, key):
         facets = self.results.get('facet_counts').get('facet_fields')
@@ -110,17 +99,12 @@ class Pager(object):
             _facets.append((value, count))
         return sorted(_facets, key=lambda (a, b): b, reverse=True)
 
-
     def query(self, **kwargs):
-        if len(self.facets):
-            kwargs['facet'] = 'true'
-            if not 'facet_limit' in kwargs:
-                kwargs['facet_limit'] = 20
-            kwargs['facet_field'] = self.facets
-        return query(g.solr, self.q or '*:*',
+        return Type.find(self.q or '*:*',
                      filters=self.filters,
-                     start=self.offset,
+                     facet_type=True,
                      rows=self.limit,
+                     start=self.offset,
                      **kwargs)
 
 
