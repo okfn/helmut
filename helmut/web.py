@@ -73,7 +73,8 @@ def entity(type, key, format=None):
     entity = type_.by_key(key)
     if entity is None:
         abort(404)
-    del entity['__id__']
+    if '__id__' in entity:
+        del entity['__id__']
     url = url_for('entity', type=type, key=key, _external=True)
     format = request_format(format)
     if format == 'json':
@@ -146,7 +147,7 @@ def reconcile():
     Reconciliation API, emulates Google Refine API. See: 
     http://code.google.com/p/google-refine/wiki/ReconciliationServiceApi
     """
-    # TODO: Add propert support for types and namespacing.
+    # TODO: Add proper support for types and namespacing.
     data = request.args.copy()
     data.update(request.form.copy())
     if 'query' in data:

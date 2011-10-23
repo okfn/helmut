@@ -2,7 +2,7 @@ import sys, json
 from datetime import datetime
 from dateutil import tz
 
-from webstore.client import Database
+from webstore.client import URL
 
 from helmut.core import app, solr
 from helmut.core import database, types_table
@@ -28,7 +28,7 @@ def query_filter(field, value, boost=None, fuzzy=False):
 
 class Type(object):
 
-    def __init__(self, name, db_user, db_name, entity_table, entity_key, 
+    def __init__(self, name, db_url, entity_table, entity_key, 
                  alias_table, alias_text, alias_key):
         self.name = name
         self.entity_table = entity_table
@@ -37,8 +37,7 @@ class Type(object):
         self.alias_text = alias_text
         self.alias_key = alias_key
         self.conn = solr()
-        self.database = Database(app.config['WEBSTORE_SERVER'],
-                                 db_user, db_name)
+        self.database, _ = URL(db_url)
         self.alias = self.database[alias_table]
         self.entity = self.database[entity_table]
 
@@ -87,8 +86,7 @@ class Type(object):
     def create(cls, data):
         row = {
             'name': data['name'],
-            'db_user': data['db_user'],
-            'db_name': data['db_name'],
+            'db_url': data['db_url'],
             'entity_table': data['entity_table'],
             'entity_key': data['entity_key'],
             'alias_table': data['alias_table'],
@@ -102,8 +100,7 @@ class Type(object):
     def update(cls, name, data):
         row = {
             'name': name,
-            'db_user': data['db_user'],
-            'db_name': data['db_name'],
+            'db_url': data['db_url'],
             'entity_table': data['entity_table'],
             'entity_key': data['entity_key'],
             'alias_table': data['alias_table'],
@@ -145,8 +142,7 @@ class Type(object):
     @classmethod
     def _row_to_type(cls, row):
         return cls(row['name'],
-                   row['db_user'],
-                   row['db_name'],
+                   row['db_url'],
                    row['entity_table'],
                    row['entity_key'],
                    row['alias_table'],

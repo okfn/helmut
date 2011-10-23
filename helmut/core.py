@@ -1,7 +1,7 @@
 from flask import Flask, request
 from flaskext.login import LoginManager
 from solr import SolrConnection
-from webstore.client import Database
+from webstore.client import URL
 
 from helmut import default_settings
 
@@ -36,9 +36,6 @@ def solr():
     return SolrConnection(solr_host)
 
 
-database = Database(app.config['WEBSTORE_SERVER'],
-              app.config['WEBSTORE_USER'],
-              app.config.get('WEBSTORE_DB', 'helmut'))
-types_table = database[app.config.get('WEBSTORE_TABLE', 'types')]
+database, types_table = URL(app.config['TYPES_URL'])
 
 
