@@ -72,6 +72,11 @@
 
   <!-- scripts concatenated and minified via ant build script-->
   <script src="/static/js/script.js"></script>
+  <script>
+    $(document).ready(function() {
+      {% block script %} {% endblock %}
+    });
+  </script>
   <!-- end scripts-->
 
 

@@ -5,6 +5,13 @@
   Type Manager
 {% endblock %}
 
+{% block script %}
+/*  console.log("foo");
+  $.get('http://webstore.thedatahub.org/pudo/mime/alias.json', function(d) {
+      console.log(d);
+  });*/
+{% endblock %}
+
 {% block content %}
   <div class="box">
     <h1>Types</h1>
@@ -12,10 +19,16 @@
     <table width="100%">
       <tr>
         <th>Name</th>
+        <th>Entities</th>
+        <th>Aliases</th>
+        <th></th>
       </tr>
       {% for t in types %}
         <tr>
           <td><a href="{{ url_for('manage', type=t.name) }}">{{ t.name }}</a></td>
+          <td><a href="{{ 'http://' + config['WEBSTORE_SERVER'] + '/'  + t.database.database_user + '/' + t.database.database_name + '/' + t.entity_table }}">{{ t.entity_table }}</a></td>
+          <td><a href="{{ 'http://' + config['WEBSTORE_SERVER'] + '/'  + t.database.database_user + '/' + t.database.database_name + '/' + t.alias_table }}">{{ t.alias_table }}</a></td>
+          <td><a href="{{ url_for('manager_edit', type=t.name) }}">edit</a></td>
         </tr>
       {% endfor %}
     </table>

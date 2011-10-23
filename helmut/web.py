@@ -118,6 +118,29 @@ def manage(type):
     type_ = Type.by_name(type)
     return render_template('manage.tmpl', type=type_)
 
+@app.route('/manager/new', methods=['GET'])
+@login_required
+def manager_new():
+    return render_template('create.tmpl')
+
+@app.route('/manager/new', methods=['POST'])
+@login_required
+def manager_new_save():
+    type_ = Type.create(request.form)
+    return render_template('manage.tmpl', type=type_)
+
+@app.route('/manager/<type>/edit', methods=['GET'])
+@login_required
+def manager_edit(type):
+    type_ = Type.by_name(type)
+    return render_template('edit.tmpl', type=type_)
+
+@app.route('/manager/<type>/edit', methods=['POST'])
+@login_required
+def manager_edit_save(type):
+    type_ = Type.update(type, request.form)
+    return render_template('manage.tmpl', type=type_)
+
 @app.route('/reconcile', methods=['GET', 'POST'])
 def reconcile():
     """ 

@@ -33,6 +33,7 @@ class Type(object):
         self.name = name
         self.entity_table = entity_table
         self.entity_key = entity_key
+        self.alias_table = alias_table
         self.alias_text = alias_text
         self.alias_key = alias_key
         self.conn = solr()
@@ -40,7 +41,7 @@ class Type(object):
                                  db_user, db_name)
         self.alias = self.database[alias_table]
         self.entity = self.database[entity_table]
-    
+
     def index(self, step=500):
         rows = []
         for i, row in enumerate(self.entity.traverse(_step=step)):
@@ -83,6 +84,36 @@ class Type(object):
         return self.find(text, filters=filters, **kw)
 
     @classmethod
+    def create(cls, data):
+        row = {
+            'name': data['name'],
+            'db_user': data['db_user'],
+            'db_name': data['db_name'],
+            'entity_table': data['entity_table'],
+            'entity_key': data['entity_key'],
+            'alias_table': data['alias_table'],
+            'alias_text': data['alias_text'],
+            'alias_key': data['alias_key']
+            }
+        types_table.writerow(row)
+        return cls._row_to_type(row)
+    
+    @classmethod
+    def update(cls, name, data):
+        row = {
+            'name': name,
+            'db_user': data['db_user'],
+            'db_name': data['db_name'],
+            'entity_table': data['entity_table'],
+            'entity_key': data['entity_key'],
+            'alias_table': data['alias_table'],
+            'alias_text': data['alias_text'],
+            'alias_key': data['alias_key']
+            }
+        types_table.writerow(row, unique_columns=[name])
+        return cls._row_to_type(row)
+
+    @classmethod
     def find(cls, text, filters=(), facet_type=False, **kw):
         fq = ['+' + query_filter(k, v) for k, v in filters]
         if len(text) and text != '*:*':
@@ -90,22 +121,23 @@ class Type(object):
             _q = [
                  query_filter('title', text, boost=10),
                  query_filter('title.n', ntext, boost=7),
-                 query_filter('alias', text, boost=8, fuzzy=True),
-                 query_filter('alias.n', ntext, boost=5, fuzzy=True),
+                 query_filter('alias', text, boost=8),
+                 query_filter('alias.n', ntext, boost=5),
                  query_filter('text', text, boost=2),
                  query_filter('text', ntext)
                  ]
-            for token in tokenize(text):
+            for token in tokenize(ntext):
                 _q.append(query_filter('title', token, fuzzy=True, boost=4))
                 _q.append(query_filter('alias', token, fuzzy=True, boost=3))
-            for token in tokenize(ntext):
-                _q.append(query_filter('title.n', token, fuzzy=True, boost=2))
-                _q.append(query_filter('alias.n', token, fuzzy=True, boost=1))
+            #for token in tokenize(ntext):
+            #    _q.append(query_filter('title.n', token, fuzzy=True, boost=2))
+            #    _q.append(query_filter('alias.n', token, fuzzy=True, boost=1))
             text = ' OR '.join(_q)
         if facet_type:
             kw['facet'] = 'true'
             kw['facet.field'] = kw.get('facet.field', []) + ['__type__']
             kw['facet.limit'] = 50
+        print text
         result = solr().raw_query(q=text, fq=fq, wt='json',
                 sort='score desc, title desc', fl='*,score', **kw)
         result = json.loads(result)

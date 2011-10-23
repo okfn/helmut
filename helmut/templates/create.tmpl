@@ -1,0 +1,52 @@
+{% import "macros.tmpl" as macros %}
+{% extends "layout.tmpl" %}
+
+{% block title %}
+  Create a type
+{% endblock %}
+
+{% block content %}
+  <div class="box">
+    <h1>Create a type</h1>
+    <form action="" method="POST">
+      <dl>
+        <dt><label for="name">Name:</label></dt>
+        <dd><input name="name"></dd>
+      </dl>
+      <dl>
+        <dt><label for="db_user">Database user:</label></dt>
+        <dd><input name="db_user"></dd>
+      </dl>
+      <dl>
+        <dt><label for="db_name">Database name:</label></dt>
+        <dd><input name="db_name"></dd>
+      </dl>
+      <dl>
+        <dt><label for="entity_table">Entity table:</label></dt>
+        <dd><input name="entity_table"></dd>
+      </dl>
+      <dl>
+        <dt><label for="entity_key">Entity key:</label></dt>
+        <dd><input name="entity_key"></dd>
+      </dl>
+      <dl>
+        <dt><label for="alias_table">Alias table:</label></dt>
+        <dd><input name="alias_table"></dd>
+      </dl>
+      <dl>
+        <dt><label for="alias_key">Alias key:</label></dt>
+        <dd><input name="alias_key"></dd>
+      </dl>
+      <dl>
+        <dt><label for="alias_text">Alias text:</label></dt>
+        <dd><input name="alias_text"></dd>
+      </dl>
+      <dl>
+        <dt><input name="Save" type="submit"></dt>
+      </dl>
+    </form>
+  </div>
+{% endblock %}
+
+
+

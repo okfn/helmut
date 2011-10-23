@@ -1,0 +1,48 @@
+{% import "macros.tmpl" as macros %}
+{% extends "layout.tmpl" %}
+
+{% block title %}
+  Edit: {{ type.name }}
+{% endblock %}
+
+{% block content %}
+  <div class="box">
+    <h1>Edit: {{ type.name }}</h1>
+    <form action="{{ url_for('manager_edit_save', type=type.name) }}" method="POST">
+      <dl>
+        <dt><label for="db_user">Database user:</label></dt>
+        <dd><input name="db_user" value="{{ type.database.database_user }}"></dd>
+      </dl>
+      <dl>
+        <dt><label for="db_name">Database name:</label></dt>
+        <dd><input name="db_name" value="{{ type.database.database_name }}"></dd>
+      </dl>
+      <dl>
+        <dt><label for="entity_table">Entity table:</label></dt>
+        <dd><input name="entity_table" value="{{ type.entity_table }}"></dd>
+      </dl>
+      <dl>
+        <dt><label for="entity_key">Entity key:</label></dt>
+        <dd><input name="entity_key" value="{{ type.entity_key }}"></dd>
+      </dl>
+      <dl>
+        <dt><label for="alias_table">Alias table:</label></dt>
+        <dd><input name="alias_table" value="{{ type.alias_table }}"></dd>
+      </dl>
+      <dl>
+        <dt><label for="alias_key">Alias key:</label></dt>
+        <dd><input name="alias_key" value="{{ type.alias_key }}"></dd>
+      </dl>
+      <dl>
+        <dt><label for="alias_text">Alias text:</label></dt>
+        <dd><input name="alias_text" value="{{ type.alias_text }}"></dd>
+      </dl>
+      <dl>
+        <dt><input name="Save" type="submit"></dt>
+      </dl>
+    </form>
+  </div>
+{% endblock %}
+
+
+
