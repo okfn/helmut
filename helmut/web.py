@@ -6,8 +6,6 @@ from flask import render_template, redirect, flash
 from flaskext.login import login_user, logout_user
 from flaskext.login import current_user, login_required
 from jinja2 import evalcontextfilter
-from bson.dbref import DBRef
-from bson.objectid import ObjectId
 
 from helmut.core import app, solr, request_format
 from helmut.reconcile import match
