@@ -48,7 +48,7 @@ class Type(object):
             row = self.row_to_index(row)
             rows.append(row)
             if i % step == 0:
-                self.conn.add_many(rows, _commit=True)
+                self.conn.add_many(rows)
                 rows = []
         if len(rows):
             self.conn.add_many(rows)
@@ -137,7 +137,6 @@ class Type(object):
             kw['facet'] = 'true'
             kw['facet.field'] = kw.get('facet.field', []) + ['__type__']
             kw['facet.limit'] = 50
-        print text
         result = solr().raw_query(q=text, fq=fq, wt='json',
                 sort='score desc, title desc', fl='*,score', **kw)
         result = json.loads(result)

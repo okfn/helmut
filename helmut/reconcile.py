@@ -12,11 +12,11 @@ def match(q):
 
     filters = [(p.get('p'), p.get('v', '*')) for p in \
                q.get('properties', []) if 'p' in p]
-    types = q.get('types')
-    if types is not None:
-        if isinstance(types, basestring):
-            types = [types]
-        types = map(lambda t: t.strip().lstrip('/'), types)
+    type_ = q.get('type')
+    if type_ is not None:
+        if isinstance(type_, basestring):
+            type_ = [type_]
+        types = map(lambda t: t.strip().lstrip('/'), type_)
         filters.extend([('__type__', t) for t in types])
         # todo: implement types_strict
     results = Type.find(q.get('query'), filters=filters, rows=limit)

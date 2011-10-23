@@ -24,6 +24,9 @@ app = Flask(__name__)
 app.config.from_object(default_settings)
 app.config.from_envvar('HELMUT_SETTINGS', silent=True)
 
+if 'TEMPLATE_OVERLAY' in app.config:
+    app.jinja_loader.searchpath.insert(0, app.config['TEMPLATE_OVERLAY'])
+
 login_manager = LoginManager()
 login_manager.setup_app(app)
 

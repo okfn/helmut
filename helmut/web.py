@@ -56,7 +56,6 @@ def before_request():
 
 @app.route('/')
 def index():
-    print current_user
     pager = Pager(request.args)
     return render_template('index.tmpl', pager=pager)
 

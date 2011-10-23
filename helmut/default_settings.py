@@ -4,7 +4,6 @@ DEBUG = True
 SECRET_KEY = 'shibbloleth'
 
 TITLE = 'Helmut the Reconciliation Server'
-ENTITY_NAME = 'entity'
 
 WEBSTORE_SERVER = 'webstore.thedatahub.org'
 WEBSTORE_USER = 'pudo'
