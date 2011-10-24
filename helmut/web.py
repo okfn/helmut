@@ -8,7 +8,7 @@ from flaskext.login import current_user, login_required
 from jinja2 import evalcontextfilter
 
 from helmut.core import app, solr, request_format
-from helmut.reconcile import match
+from helmut.reconcile import match, prefix_search
 from helmut.entity import Type
 from helmut.pager import Pager
 from helmut.auth import User
@@ -165,21 +165,43 @@ def reconcile():
             queries[k] = match(q)
         return jsonify(queries)
     else:
-        urlp = url_for('index', _external=True).strip('/') + '{{id}}'
+        domain = url_for('index', _external=True).strip('/')
+        urlp = domain + '{{id}}'
         types = [{'name': t.name, 'id': '/' + t.name} for t in Type.types()]
         meta = {
                 'name': app.config['TITLE'],
                 'identifierSpace': 'http://rdf.freebase.com/ns/type.object.id',
                 'schemaSpace': 'http://rdf.freebase.com/ns/type.object.id',
                 'view': {'url': urlp},
+                'suggest': {
+                    'entity': {
+                        'service_url': domain,
+                        'service_path': '/suggest',
+                        'flyout_service_path': '/flyout'
+                        }
+                    },
                 'preview': {
                     'url': urlp + '?preview=true', 
-                    'width': 400,
+                    'width': 600,
                     'height': 300
                     },
                 'defaultTypes': types
                 }
         return jsonify(meta)
+
+@app.route('/suggest', methods=['GET', 'POST'])
+def suggest():
+    """ 
+    Suggest API, emulates Google Refine API. See:
+    http://code.google.com/p/google-refine/wiki/SuggestApi
+    """
+    result = prefix_search(request.args)
+    return jsonify(result)
+
+@app.route('/flyout', methods=['GET', 'POST'])
+@app.route('/private/flyout', methods=['GET', 'POST'])
+def flyout():
+    return jsonify({'html': '<h3>%s</h3>' % request.args.get('id')})
 
 if __name__ == "__main__":
     app.run(port=5005)

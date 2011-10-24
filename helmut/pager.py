@@ -100,7 +100,7 @@ class Pager(object):
         return sorted(_facets, key=lambda (a, b): b, reverse=True)
 
     def query(self, **kwargs):
-        return Type.find(self.q or '*:*',
+        return Type.find_fuzzy(self.q or '*:*',
                      filters=self.filters,
                      facet_type=True,
                      rows=self.limit,

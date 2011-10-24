@@ -111,7 +111,7 @@ class Type(object):
         return cls._row_to_type(row)
 
     @classmethod
-    def find(cls, text, filters=(), facet_type=False, **kw):
+    def find_fuzzy(cls, text, filters=(), facet_type=False, **kw):
         fq = ['+' + query_filter(k, v) for k, v in filters]
         if len(text) and text != '*:*':
             ntext = normalize(text)
@@ -134,7 +134,11 @@ class Type(object):
             kw['facet'] = 'true'
             kw['facet.field'] = kw.get('facet.field', []) + ['__type__']
             kw['facet.limit'] = 50
-        result = solr().raw_query(q=text, fq=fq, wt='json',
+        return cls.find(text, fq, **kw)
+
+    @classmethod
+    def find(cls, q, fq, **kw):
+        result = solr().raw_query(q=q, fq=fq, wt='json',
                 sort='score desc, title desc', fl='*,score', **kw)
         result = json.loads(result)
         return result
