@@ -126,9 +126,6 @@ class Type(object):
             for token in tokenize(ntext):
                 _q.append(query_filter('title', token, fuzzy=True, boost=4))
                 _q.append(query_filter('alias', token, fuzzy=True, boost=3))
-            #for token in tokenize(ntext):
-            #    _q.append(query_filter('title.n', token, fuzzy=True, boost=2))
-            #    _q.append(query_filter('alias.n', token, fuzzy=True, boost=1))
             text = ' OR '.join(_q)
         if facet_type:
             kw['facet'] = 'true'
@@ -139,7 +136,7 @@ class Type(object):
     @classmethod
     def find(cls, q, fq, **kw):
         result = solr().raw_query(q=q, fq=fq, wt='json',
-                sort='score desc, title desc', fl='*,score', **kw)
+                sort='score desc', fl='*,score', **kw)
         result = json.loads(result)
         return result
 

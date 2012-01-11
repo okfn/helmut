@@ -86,7 +86,6 @@ class Pager(object):
     def __iter__(self):
         return iter(self.results.get('response', {}).get('docs'))
 
-
     def __len__(self):
         return self.results.get('response', {}).get('numFound')
 
